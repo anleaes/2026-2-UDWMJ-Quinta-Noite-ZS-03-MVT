@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SalãoApp - Sistema de Agendamento{% endblock title %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">SalãoApp</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Catálogo e Espaço</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/especialidades/">1. Especialidades</a></li>
+                            <li><a class="dropdown-item" href="/procedimentos/">2. Procedimentos</a></li>
+                            <li><a class="dropdown-item" href="/pacotes/">3. Pacotes Promocionais</a></li>
+                            <li><a class="dropdown-item" href="/estacoes/">4. Estações de Atendimento</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Pessoas e Anamnese</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/pessoas/">5. Pessoas</a></li>
+                            <li><a class="dropdown-item" href="/profissionais/">6. Profissionais</a></li>
+                            <li><a class="dropdown-item" href="/clientes/">7. Clientes</a></li>
+                            <li><a class="dropdown-item" href="/anamneses/">8. Fichas de Anamnese</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Agenda e Caixa</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/escalas/">9. Escalas de Horário</a></li>
+                            <li><a class="dropdown-item" href="/agendamentos/">10. Agendamentos</a></li>
+                            <li><a class="dropdown-item" href="/atendimentos/">11. Itens do Atendimento</a></li>
+                            <li><a class="dropdown-item" href="/pagamentos/">12. Pagamentos (Caixa)</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <a href="/admin/" class="btn btn-outline-light btn-sm">Admin</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        {% block body %}
+        {% endblock body %}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
