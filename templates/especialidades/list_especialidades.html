@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Especialidades - {{ block.super }}{% endblock title %}
+
+{% block body %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h4>Especialidades do Salão</h4>
+    <a href="{% url 'especialidades:add_especialidade' %}" class="btn btn-primary">+ Nova Especialidade</a>
+</div>
+<table class="table table-hover bg-white shadow-sm">
+    <thead class="table-dark">
+        <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Área Estética</th>
+            <th>Biossegurança</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in especialidades %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.nome }}</td>
+            <td>{{ item.area_estetica }}</td>
+            <td>{% if item.exige_biosseguranca %}Sim{% else %}Não{% endif %}</td>
+            <td>{% if item.ativa %}Ativa{% else %}Inativa{% endif %}</td>
+            <td>
+                <a href="{% url 'especialidades:edit_especialidade' item.id %}" class="btn btn-sm btn-warning">Editar</a>
+                <a href="{% url 'especialidades:delete_especialidade' item.id %}" class="btn btn-sm btn-danger">Excluir</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="6" class="text-center">Nenhuma especialidade cadastrada.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock body %}

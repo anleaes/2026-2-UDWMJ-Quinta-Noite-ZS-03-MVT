@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}Cadastro de Especialidade - {{ block.super }}{% endblock title %}
+
+{% block body %}
+<div class="card shadow-sm">
+    <div class="card-header bg-dark text-white">
+        <h5 class="mb-0">Cadastro de Especialidade</h5>
+    </div>
+    <div class="card-body">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">{{ form.nome.label }}</label>
+                {{ form.nome|add_class:"form-control" }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label">{{ form.descricao.label }}</label>
+                {{ form.descricao|add_class:"form-control" }}
+            </div>
+            <div class="mb-3">
+                <label class="form-label">{{ form.area_estetica.label }}</label>
+                {{ form.area_estetica|add_class:"form-control" }}
+            </div>
+            <div class="form-check mb-2">
+                {{ form.exige_biosseguranca|add_class:"form-check-input" }}
+                <label class="form-check-label">{{ form.exige_biosseguranca.label }}</label>
+            </div>
+            <div class="form-check mb-3">
+                {{ form.ativa|add_class:"form-check-input" }}
+                <label class="form-check-label">{{ form.ativa.label }}</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a href="{% url 'especialidades:list_especialidades' %}" class="btn btn-secondary">Voltar</a>
+        </form>
+    </div>
+</div>
+{% endblock body %}
