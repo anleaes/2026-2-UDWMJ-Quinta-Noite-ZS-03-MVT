@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}Cadastro de Procedimento — SalãoApp Studio{% endblock title %}
+
+{% block body %}
+<div class="row justify-content-center" data-aos="zoom-in-up">
+    <div class="col-lg-8">
+        <div class="bento-card">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="icon-box"><i data-lucide="sparkles"></i></div>
+                    <div>
+                        <h5 class="mb-0 fw-bold">Configurar Procedimento</h5>
+                        <small class="text-secondary">Defina valores, tempo de cadeira, especialidade e arquivos técnicos</small>
+                    </div>
+                </div>
+                <a href="{% url 'especialidades:add_especialidade' %}" class="btn btn-sm btn-outline-light d-flex align-items-center gap-1">
+                    <i data-lucide="plus" size="14"></i> Nova Especialidade
+                </a>
+            </div>
+            <div class="card-body p-4">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-7">
+                            <label class="form-label fw-semibold">{{ form.nome.label }}</label>
+                            {{ form.nome|add_class:"form-control"|attr:"placeholder:Ex: Mechas Criativas + Tratamento" }}
+                        </div>
+                        <div class="col-md-5">
+                            <label class="form-label fw-semibold">{{ form.especialidade.label }}</label>
+                            {{ form.especialidade|add_class:"form-select" }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">{{ form.preco.label }}</label>
+                            {{ form.preco|add_class:"form-control"|attr:"placeholder:Ex: 280.00" }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">{{ form.duracao_minutos.label }}</label>
+                            {{ form.duracao_minutos|add_class:"form-control"|attr:"placeholder:Ex: 90" }}
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-semibold">{{ form.descricao.label }}</label>
+                            {{ form.descricao|add_class:"form-control"|attr:"rows:3" }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">{{ form.foto_inspiracao.label }}</label>
+                            {{ form.foto_inspiracao|add_class:"form-control" }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">{{ form.protocolo_pop.label }}</label>
+                            {{ form.protocolo_pop|add_class:"form-control" }}
+                        </div>
+                        <div class="col-12">
+                            <div class="p-3 rounded-3 border border-secondary border-opacity-25 mt-1">
+                                <div class="form-check form-switch">
+                                    {{ form.exige_teste_mecha|add_class:"form-check-input" }}
+                                    <label class="form-check-label fw-semibold">{{ form.exige_teste_mecha.label }}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end gap-2 mt-4">
+                        <a href="{% url 'procedimentos:list_procedimentos' %}" class="btn btn-outline-light px-4">Cancelar</a>
+                        <button type="submit" class="btn btn-primary d-flex align-items-center gap-2 px-4">
+                            <i data-lucide="check" size="18"></i> Salvar Procedimento
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
