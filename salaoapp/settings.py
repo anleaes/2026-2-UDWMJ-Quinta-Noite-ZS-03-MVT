@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'core.apps.CoreConfig',
     'especialidades.apps.EspecialidadesConfig',
+    'procedimentos.apps.ProcedimentosConfig',
 ]
 
 MIDDLEWARE = [
