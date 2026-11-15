@@ -10,148 +10,46 @@
         </button>
 
         <div class="collapse navbar-collapse" id="menuPrincipal">
-            <ul class="navbar-nav mx-auto gap-1">
-                <!-- 1. Recepção & Agenda -->
+            <ul class="navbar-nav ms-auto gap-2">
+                <!-- Frente 1: Módulos 1 a 4 -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#" data-bs-toggle="dropdown">
-                        <i data-lucide="calendar-clock" size="17"></i> Agenda & Atendimento
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/agendamentos/"><i data-lucide="calendar-check" size="16"></i> 10. Agendamentos</a></li>
-                        <li><a class="dropdown-item" href="/atendimentos/"><i data-lucide="wand-2" size="16"></i> 11. Itens do Atendimento</a></li>
-                        <li><a class="dropdown-item" href="/escalas/"><i data-lucide="clock" size="16"></i> 9. Escalas de Horário</a></li>
-                    </ul>
-                </li>
-
-                <!-- 2. Clientes & Saúde Capilar -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#" data-bs-toggle="dropdown">
-                        <i data-lucide="heart-handshake" size="17"></i> Clientes & Anamnese
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/clientes/"><i data-lucide="users" size="16"></i> 7. Clientes VIP & Fidelidade</a></li>
-                        <li><a class="dropdown-item" href="/anamneses/"><i data-lucide="clipboard-list" size="16"></i> 8. Fichas de Anamnese</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/pessoas/"><i data-lucide="user-check" size="16"></i> 5. Cadastro Base (Pessoas)</a></li>
-                    </ul>
-                </li>
-
-                <!-- 3. Catálogo Estético -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#" data-bs-toggle="dropdown">
-                        <i data-lucide="scissors" size="17"></i> Catálogo
+                        <i data-lucide="scissors" size="17"></i> Catálogo & Espaço
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/especialidades/"><i data-lucide="award" size="16"></i> 1. Especialidades</a></li>
                         <li><a class="dropdown-item" href="/procedimentos/"><i data-lucide="sparkles" size="16"></i> 2. Procedimentos & Serviços</a></li>
                         <li><a class="dropdown-item" href="/pacotes/"><i data-lucide="gift" size="16"></i> 3. Pacotes & Combos</a></li>
+                        <li><a class="dropdown-item" href="/estacoes/"><i data-lucide="armchair" size="16"></i> 4. Estações / Cadeiras</a></li>
                     </ul>
                 </li>
 
-                <!-- 4. Espaço, Equipe & Caixa -->
+                <!-- Frente 2: Módulos 5 a 8 -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#" data-bs-toggle="dropdown">
-                        <i data-lucide="building-2" size="17"></i> Estrutura & Caixa
+                        <i data-lucide="heart-handshake" size="17"></i> Pessoas & Anamnese
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/profissionais/"><i data-lucide="badge-check" size="16"></i> 6. Especialistas & Comissões</a></li>
-                        <li><a class="dropdown-item" href="/estacoes/"><i data-lucide="armchair" size="16"></i> 4. Cadeiras & Lavatórios</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/pagamentos/"><i data-lucide="wallet" size="16"></i> 12. Fechamento de Caixa</a></li>
+                        <li><a class="dropdown-item" href="/pessoas/"><i data-lucide="user-check" size="16"></i> 5. Pessoas (Cadastro Base)</a></li>
+                        <li><a class="dropdown-item" href="/profissionais/"><i data-lucide="badge-check" size="16"></i> 6. Profissionais & Comissões</a></li>
+                        <li><a class="dropdown-item" href="/clientes/"><i data-lucide="users" size="16"></i> 7. Clientes VIP & Fidelidade</a></li>
+                        <li><a class="dropdown-item" href="/anamneses/"><i data-lucide="clipboard-list" size="16"></i> 8. Fichas de Anamnese</a></li>
+                    </ul>
+                </li>
+
+                <!-- Frente 3: Módulos 9 a 12 -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#" data-bs-toggle="dropdown">
+                        <i data-lucide="calendar-clock" size="17"></i> Agenda & Caixa
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="/escalas/"><i data-lucide="clock" size="16"></i> 9. Escalas de Horário</a></li>
+                        <li><a class="dropdown-item" href="/agendamentos/"><i data-lucide="calendar-check" size="16"></i> 10. Agendamentos</a></li>
+                        <li><a class="dropdown-item" href="/atendimentos/"><i data-lucide="wand-2" size="16"></i> 11. Itens do Atendimento</a></li>
+                        <li><a class="dropdown-item" href="/pagamentos/"><i data-lucide="wallet" size="16"></i> 12. Pagamentos (Caixa)</a></li>
                     </ul>
                 </li>
             </ul>
-
-            <!-- Ações Interativas: Busca Ctrl+K, Tema Claro/Escuro, Status Oracle e Admin -->
-            <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
-                <button type="button" class="btn-glass d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#quickSearchModal">
-                    <i data-lucide="search" size="15"></i>
-                    <span class="d-none d-xl-inline">Ir para...</span>
-                    <span class="kbd-shortcut">Ctrl+K</span>
-                </button>
-
-                <button type="button" id="themeToggleBtn" class="btn-glass d-flex align-items-center justify-content-center" title="Alternar Tema">
-                    <i data-lucide="sun" size="16"></i>
-                </button>
-
-                <span class="btn-glass d-none d-md-inline-flex align-items-center gap-2" title="Conectado ao Oracle Autonomous Database">
-                    <span class="status-dot"></span>
-                    <small class="fw-semibold" style="font-size: 0.75rem;">OCI Online</small>
-                </span>
-
-                <a href="/admin/" target="_blank" class="btn-glass text-decoration-none d-flex align-items-center gap-1">
-                    <i data-lucide="shield" size="15"></i>
-                </a>
-            </div>
         </div>
     </div>
 </nav>
-
-<!-- Modal Interativo de Navegação Rápida (Ctrl + K) -->
-<div class="modal fade" id="quickSearchModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content bento-card border-0 p-2">
-            <div class="modal-header border-0 pb-2">
-                <div class="input-group">
-                    <span class="input-group-text bg-transparent border-0 text-danger">
-                        <i data-lucide="compass" size="20"></i>
-                    </span>
-                    <input type="text" id="quickSearchInput" class="form-control border-0 shadow-none" placeholder="Digite o nome de qualquer um dos 12 módulos (ex: Anamnese, Pix, Corte)...">
-                </div>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-            </div>
-            <div class="modal-body pt-0" style="max-height: 340px; overflow-y: auto;">
-                <div class="d-flex flex-column gap-1">
-                    <a href="/especialidades/" class="dropdown-item quick-module-item justify-content-between">
-                        <span><i data-lucide="award" size="16" class="me-2 text-danger"></i> 1. Especialidades Estéticas</span>
-                        <small class="text-secondary">Catálogo</small>
-                    </a>
-                    <a href="/procedimentos/" class="dropdown-item quick-module-item justify-content-between">
-                        <span><i data-lucide="sparkles" size="16" class="me-2 text-danger"></i> 2. Procedimentos & Serviços</span>
-                        <small class="text-secondary">Catálogo</small>
-                    </a>
-                    <a href="/pacotes/" class="dropdown-item quick-module-item justify-content-between">
-                        <span><i data-lucide="gift" size="16" class="me-2 text-danger"></i> 3. Pacotes Estéticos & Dia da Noiva</span>
-                        <small class="text-secondary">Catálogo</small>
-                    </a>
-                    <a href="/estacoes/" class="dropdown-item quick-module-item justify-content-between">
-                        <span><i data-lucide="armchair" size="16" class="me-2 text-danger"></i> 4. Estações, Cadeiras & Lavatórios</span>
-                        <small class="text-secondary">Espaço Físico</small>
-                    </a>
-                    <a href="/pessoas/" class="dropdown-item quick-module-item justify-content-between">
-                        <span><i data-lucide="user-check" size="16" class="me-2 text-danger"></i> 5. Pessoas (Superclasse Base)</span>
-                        <small class="text-secondary">Pessoas</small>
-                    </a>
-                    <a href="/profissionais/" class="dropdown-item quick-module-item justify-content-between">
-                        <span><i data-lucide="badge-check" size="16" class="me-2 text-danger"></i> 6. Profissionais & Comissões</span>
-                        <small class="text-secondary">Equipe</small>
-                    </a>
-                    <a href="/clientes/" class="dropdown-item quick-module-item justify-content-between">
-                        <span><i data-lucide="users" size="16" class="me-2 text-danger"></i> 7. Clientes VIP & Fidelidade</span>
-                        <small class="text-secondary">Clientes</small>
-                    </a>
-                    <a href="/anamneses/" class="dropdown-item quick-module-item justify-content-between">
-                        <span><i data-lucide="clipboard-list" size="16" class="me-2 text-danger"></i> 8. Fichas de Anamnese Capilar</span>
-                        <small class="text-secondary">Saúde Capilar</small>
-                    </a>
-                    <a href="/escalas/" class="dropdown-item quick-module-item justify-content-between">
-                        <span><i data-lucide="clock" size="16" class="me-2 text-danger"></i> 9. Escalas de Trabalho</span>
-                        <small class="text-secondary">Agenda</small>
-                    </a>
-                    <a href="/agendamentos/" class="dropdown-item quick-module-item justify-content-between">
-                        <span><i data-lucide="calendar-check" size="16" class="me-2 text-danger"></i> 10. Agendamentos de Horários</span>
-                        <small class="text-secondary">Agenda</small>
-                    </a>
-                    <a href="/atendimentos/" class="dropdown-item quick-module-item justify-content-between">
-                        <span><i data-lucide="wand-2" size="16" class="me-2 text-danger"></i> 11. Itens de Atendimento (Antes/Depois)</span>
-                        <small class="text-secondary">Execução</small>
-                    </a>
-                    <a href="/pagamentos/" class="dropdown-item quick-module-item justify-content-between">
-                        <span><i data-lucide="wallet" size="16" class="me-2 text-danger"></i> 12. Pagamentos & Caixa (PIX)</span>
-                        <small class="text-secondary">Financeiro</small>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Inicializa Ícones Lucide e AOS
+    // 1. Inicializa Ícones Lucide e animações AOS
     if (typeof lucide !== "undefined") {
         lucide.createIcons();
     }
@@ -7,35 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         AOS.init({ duration: 650, once: true, offset: 30 });
     }
 
-    // 2. Alternador de Tema (Claro / Escuro) com memória no navegador
-    const htmlEl = document.documentElement;
-    const themeBtn = document.getElementById("themeToggleBtn");
-
-    function updateThemeIcon(theme) {
-        if (!themeBtn) return;
-        const iconName = theme === "light" ? "moon" : "sun";
-        const label = theme === "light" ? "Modo Escuro" : "Modo Claro";
-        themeBtn.innerHTML = `<i data-lucide="${iconName}" size="16"></i>`;
-        themeBtn.setAttribute("title", label);
-        if (typeof lucide !== "undefined") {
-            lucide.createIcons();
-        }
-    }
-
-    const currentTheme = localStorage.getItem("salaoapp_theme") || "dark";
-    htmlEl.setAttribute("data-bs-theme", currentTheme);
-    updateThemeIcon(currentTheme);
-
-    if (themeBtn) {
-        themeBtn.addEventListener("click", () => {
-            const nextTheme = htmlEl.getAttribute("data-bs-theme") === "dark" ? "light" : "dark";
-            htmlEl.setAttribute("data-bs-theme", nextTheme);
-            localStorage.setItem("salaoapp_theme", nextTheme);
-            updateThemeIcon(nextTheme);
-        });
-    }
-
-    // 3. Efeito Spotlight nos Bento Cards
+    // 2. Efeito Spotlight nos Bento Cards
     document.querySelectorAll(".bento-card").forEach((card) => {
         card.addEventListener("mousemove", (e) => {
             const rect = card.getBoundingClientRect();
@@ -44,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 4. Animação de entrada GSAP
+    // 3. Animação de entrada GSAP
     if (typeof gsap !== "undefined" && document.querySelector(".gsap-hero")) {
         gsap.from(".gsap-hero", {
             y: 22,
@@ -55,47 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 5. Atalho Ctrl+K para abrir a Paleta de Busca Rápida de Módulos
-    const quickSearchModalEl = document.getElementById("quickSearchModal");
-    const quickSearchInput = document.getElementById("quickSearchInput");
-
-    if (quickSearchModalEl && typeof bootstrap !== "undefined") {
-        const modalInstance = new bootstrap.Modal(quickSearchModalEl);
-
-        document.addEventListener("keydown", (e) => {
-            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
-                e.preventDefault();
-                modalInstance.show();
-            }
-        });
-
-        quickSearchModalEl.addEventListener("shown.bs.modal", () => {
-            if (quickSearchInput) {
-                quickSearchInput.value = "";
-                quickSearchInput.focus();
-                filterModules("");
-            }
-        });
-    }
-
-    function filterModules(term) {
-        const items = document.querySelectorAll(".quick-module-item");
-        const query = term.toLowerCase().trim();
-        items.forEach((item) => {
-            const text = item.textContent.toLowerCase();
-            item.style.display = text.includes(query) ? "flex" : "none";
-        });
-    }
-
-    if (quickSearchInput) {
-        quickSearchInput.addEventListener("input", (e) => {
-            filterModules(e.target.value);
-        });
-    }
-
-    // 6. Busca Instantânea Automática para qualquer Tabela do Sistema
-    const tables = document.querySelectorAll("table.table");
-    tables.forEach((table) => {
+    // 4. Filtro Instantâneo nas Tabelas
+    document.querySelectorAll("table.table").forEach((table) => {
         if (table.dataset.searchEnhanced) return;
         table.dataset.searchEnhanced = "true";
 
@@ -115,10 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const input = wrapper.querySelector(".table-live-filter");
         input.addEventListener("input", (e) => {
             const val = e.target.value.toLowerCase();
-            const rows = table.querySelectorAll("tbody tr");
-            rows.forEach((row) => {
-                const rowText = row.textContent.toLowerCase();
-                row.style.display = rowText.includes(val) ? "" : "none";
+            table.querySelectorAll("tbody tr").forEach((row) => {
+                row.style.display = row.textContent.toLowerCase().includes(val) ? "" : "none";
             });
         });
     });
