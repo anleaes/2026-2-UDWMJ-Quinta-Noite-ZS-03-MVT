@@ -1,0 +1,257 @@
+:root {
+    --bg-obsidian: #09090b;
+    --bg-glass: rgba(24, 24, 27, 0.72);
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --accent-rose: #f43f5e;
+    --accent-gold: #f59e0b;
+    --accent-violet: #8b5cf6;
+    --text-primary: #f4f4f5;
+    --text-muted: #a1a1aa;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-obsidian);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Fundo Aurora (Estilo Aceternity UI) */
+.aurora-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 15% 15%, rgba(244, 63, 94, 0.14), transparent 35%),
+        radial-gradient(circle at 85% 20%, rgba(139, 92, 246, 0.12), transparent 40%),
+        radial-gradient(circle at 50% 85%, rgba(245, 158, 11, 0.08), transparent 40%);
+}
+
+/* Navbar Glassmorphic */
+.navbar-custom {
+    background: rgba(9, 9, 11, 0.82) !important;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-glass);
+}
+
+.brand-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #fff 0%, #fda4af 50%, #f43f5e 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.5px;
+}
+
+.dropdown-menu {
+    background: rgba(24, 24, 27, 0.96);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border-glass);
+    border-radius: 14px;
+    padding: 0.5rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
+}
+
+.dropdown-item {
+    border-radius: 8px;
+    padding: 0.55rem 0.85rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background: rgba(244, 63, 94, 0.15);
+    color: #fda4af;
+    transform: translateX(4px);
+}
+
+/* Cards Bento e Efeito Spotlight */
+.card, .bento-card {
+    background: var(--bg-glass) !important;
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border-glass) !important;
+    border-radius: 18px !important;
+    color: var(--text-primary);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bento-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(244, 63, 94, 0.12),
+        transparent 40%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.bento-card:hover::before {
+    opacity: 1;
+}
+
+.bento-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(244, 63, 94, 0.35) !important;
+    box-shadow: 0 16px 32px -10px rgba(244, 63, 94, 0.2);
+}
+
+.card-header {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border-bottom: 1px solid var(--border-glass) !important;
+    padding: 1.1rem 1.4rem;
+}
+
+/* Botões e Badges */
+.btn-primary {
+    background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%) !important;
+    border: none !important;
+    border-radius: 10px;
+    font-weight: 600;
+    padding: 0.55rem 1.2rem;
+    box-shadow: 0 4px 15px rgba(244, 63, 94, 0.35);
+    transition: all 0.25s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(244, 63, 94, 0.55);
+}
+
+.badge-glow {
+    background: rgba(244, 63, 94, 0.15);
+    color: #fda4af;
+    border: 1px solid rgba(244, 63, 94, 0.3);
+    border-radius: 999px;
+    padding: 0.35rem 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(244, 63, 94, 0.12);
+    color: #fb7185;
+    border: 1px solid rgba(244, 63, 94, 0.25);
+}
+
+/* Padronização Automática de Inputs e Tabelas dos 12 Apps */
+.form-control, .form-select {
+    background-color: rgba(9, 9, 11, 0.75) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: #fff !important;
+    border-radius: 10px;
+    padding: 0.65rem 0.9rem;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--accent-rose) !important;
+    box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.2) !important;
+}
+
+.table {
+    --bs-table-bg: transparent !important;
+    --bs-table-color: var(--text-primary);
+    border-color: var(--border-glass);
+    margin-bottom: 0;
+}
+
+.table thead th {
+    background: rgba(255, 255, 255, 0.04) !important;
+    color: #fda4af !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.8px;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-glass);
+}
+
+.table tbody td {
+    padding: 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--border-glass);
+}
+
+/* Carrossel Infinito (Magic UI Marquee) */
+.marquee-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    background: rgba(244, 63, 94, 0.06);
+    border-top: 1px solid var(--border-glass);
+    border-bottom: 1px solid var(--border-glass);
+    padding: 0.65rem 0;
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: marquee 28s linear infinite;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Correção de compatibilidade do logo */
+.brand-logo {
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* BLINDAGEM GLOBAL DE TEMA:
+   Converte automaticamente qualquer bg-white ou bg-light usado nos 12 módulos
+   para o efeito vidro escuro (Glassmorphism) do SalãoApp */
+.bg-white,
+.bg-light,
+div.bg-white.border,
+table.bg-white {
+    background: var(--bg-glass) !important;
+    backdrop-filter: blur(16px) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-glass) !important;
+    border-radius: 16px !important;
+}
+
+.border {
+    border-color: var(--border-glass) !important;
+}
+
+.text-muted,
+.text-secondary {
+    color: var(--text-muted) !important;
+}
+
+/* Garante que tabelas nunca fiquem com fundo branco ou letras apagadas */
+.table,
+.table > :not(caption) > * > * {
+    background-color: transparent !important;
+    color: var(--text-primary) !important;
+    border-bottom-color: var(--border-glass) !important;
+}
+
+.table-hover > tbody > tr:hover > * {
+    background-color: rgba(244, 63, 94, 0.08) !important;
+    color: #ffffff !important;
+}

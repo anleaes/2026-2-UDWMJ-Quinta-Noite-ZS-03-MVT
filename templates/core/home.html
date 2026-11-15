@@ -1,10 +1,83 @@
 {% extends 'base.html' %}
 
-{% block title %}Início - SalãoApp{% endblock title %}
+{% block title %}SalãoApp Studio — Painel de Gestão Estética{% endblock title %}
 
 {% block body %}
-<div class="p-4 bg-white rounded shadow-sm border">
-    <h2 class="fw-bold">SalãoApp - Gestão e Agendamento Estético</h2>
-    <p class="text-muted mb-0">Selecione um módulo no menu superior para gerenciar os cadastros e agendamentos do salão.</p>
+<div class="text-center py-4 mb-4">
+    <span class="badge-glow d-inline-flex align-items-center gap-2 mb-3 gsap-hero">
+        <i data-lucide="sparkles" size="14"></i> Plataforma Integrada Oracle Cloud OCI
+    </span>
+    <h1 class="display-5 fw-bold mb-3 gsap-hero" style="font-family: 'Playfair Display', serif;">
+        Gestão de Alta Performance para <span style="color: #fb7185;">Beleza & Estética</span>
+    </h1>
+    <p class="text-secondary col-lg-7 mx-auto mb-4 gsap-hero">
+        Controle clínico de anamnese capilar, escala inteligente de profissionais, ocupação de cadeiras e agendamento multi-serviços em tempo real.
+    </p>
+    <div class="d-flex justify-content-center gap-3 gsap-hero">
+        <a href="/especialidades/" class="btn btn-primary d-flex align-items-center gap-2 px-4 py-2">
+            <i data-lucide="scissors" size="18"></i> Explorar Catálogo
+        </a>
+        <a href="/agendamentos/" class="btn btn-outline-light d-flex align-items-center gap-2 px-4 py-2">
+            <i data-lucide="calendar" size="18"></i> Abrir Agenda
+        </a>
+    </div>
+</div>
+
+<div class="marquee-wrapper rounded-4 mb-5" data-aos="fade-in">
+    <div class="marquee-content text-secondary small fw-semibold">
+        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Diagnóstico Capilar & Teste de Mecha</span>
+        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Controle de Biossegurança</span>
+        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Combos & Dia da Noiva</span>
+        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Alocação de Cadeiras e Lavatórios</span>
+        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Histórico Visual Antes & Depois</span>
+        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Comissionamento Automático</span>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4" data-aos="fade-up" data-aos-delay="50">
+        <div class="bento-card p-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="icon-box"><i data-lucide="scissors"></i></div>
+                <h5 class="fw-bold mb-0">Catálogo & Espaço</h5>
+            </div>
+            <div class="d-grid gap-2">
+                <a href="/especialidades/" class="btn btn-outline-light text-start">1. Especialidades</a>
+                <a href="/procedimentos/" class="btn btn-outline-light text-start">2. Procedimentos</a>
+                <a href="/pacotes/" class="btn btn-outline-light text-start">3. Pacotes Estéticos</a>
+                <a href="/estacoes/" class="btn btn-outline-light text-start">4. Estações / Cadeiras</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
+        <div class="bento-card p-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="icon-box"><i data-lucide="heart-handshake"></i></div>
+                <h5 class="fw-bold mb-0">Pessoas & Anamnese</h5>
+            </div>
+            <div class="d-grid gap-2">
+                <a href="/pessoas/" class="btn btn-outline-light text-start">5. Pessoas (Base)</a>
+                <a href="/profissionais/" class="btn btn-outline-light text-start">6. Profissionais</a>
+                <a href="/clientes/" class="btn btn-outline-light text-start">7. Clientes VIP</a>
+                <a href="/anamneses/" class="btn btn-outline-light text-start">8. Fichas de Anamnese</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4" data-aos="fade-up" data-aos-delay="250">
+        <div class="bento-card p-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="icon-box"><i data-lucide="calendar-clock"></i></div>
+                <h5 class="fw-bold mb-0">Agenda & Caixa</h5>
+            </div>
+            <div class="d-grid gap-2">
+                <a href="/escalas/" class="btn btn-outline-light text-start">9. Escalas de Turno</a>
+                <a href="/agendamentos/" class="btn btn-outline-light text-start">10. Agendamentos</a>
+                <a href="/atendimentos/" class="btn btn-outline-light text-start">11. Itens de Atendimento</a>
+                <a href="/pagamentos/" class="btn btn-outline-light text-start">12. Pagamentos (Caixa)</a>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock body %}
