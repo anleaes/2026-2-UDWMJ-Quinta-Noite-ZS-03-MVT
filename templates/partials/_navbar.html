@@ -10,7 +10,8 @@
         </button>
 
         <div class="collapse navbar-collapse" id="menuPrincipal">
-            <ul class="navbar-nav ms-auto gap-2">
+            <!-- Menus colados ao lado do SalãoApp Studio na ordem 1 a 12 -->
+            <ul class="navbar-nav me-auto ms-lg-3 gap-1">
                 <!-- Frente 1: Módulos 1 a 4 -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#" data-bs-toggle="dropdown">
@@ -42,7 +43,7 @@
                     <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#" data-bs-toggle="dropdown">
                         <i data-lucide="calendar-clock" size="17"></i> Agenda & Caixa
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end">
+                    <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/escalas/"><i data-lucide="clock" size="16"></i> 9. Escalas de Horário</a></li>
                         <li><a class="dropdown-item" href="/agendamentos/"><i data-lucide="calendar-check" size="16"></i> 10. Agendamentos</a></li>
                         <li><a class="dropdown-item" href="/atendimentos/"><i data-lucide="wand-2" size="16"></i> 11. Itens do Atendimento</a></li>
@@ -50,6 +51,23 @@
                     </ul>
                 </li>
             </ul>
+
+            <!-- Canto Direito: Tema Claro/Escuro, Status OCI e Botão Admin -->
+            <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
+                <button type="button" id="themeToggleBtn" class="btn-glass d-flex align-items-center justify-content-center" title="Alternar Tema Claro/Escuro">
+                    <i data-lucide="sun" size="16"></i>
+                </button>
+
+                <span class="btn-glass d-none d-md-inline-flex align-items-center gap-2" title="Conectado ao Oracle Autonomous Database">
+                    <span class="status-dot"></span>
+                    <small class="fw-semibold" style="font-size: 0.75rem;">OCI Online</small>
+                </span>
+
+                <a href="/admin/" target="_blank" class="btn-glass text-decoration-none d-flex align-items-center gap-1" title="Painel Administrativo">
+                    <i data-lucide="shield" size="15"></i>
+                    <span class="small fw-semibold">Admin</span>
+                </a>
+            </div>
         </div>
     </div>
 </nav>

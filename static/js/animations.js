@@ -7,7 +7,35 @@ document.addEventListener("DOMContentLoaded", () => {
         AOS.init({ duration: 650, once: true, offset: 30 });
     }
 
-    // 2. Efeito Spotlight nos Bento Cards
+    // 2. Alternador de Tema (Claro / Escuro) com memória no navegador
+    const htmlEl = document.documentElement;
+    const themeBtn = document.getElementById("themeToggleBtn");
+
+    function updateThemeIcon(theme) {
+        if (!themeBtn) return;
+        const iconName = theme === "light" ? "moon" : "sun";
+        const label = theme === "light" ? "Modo Escuro" : "Modo Claro";
+        themeBtn.innerHTML = `<i data-lucide="${iconName}" size="16"></i>`;
+        themeBtn.setAttribute("title", label);
+        if (typeof lucide !== "undefined") {
+            lucide.createIcons();
+        }
+    }
+
+    const currentTheme = localStorage.getItem("salaoapp_theme") || "dark";
+    htmlEl.setAttribute("data-bs-theme", currentTheme);
+    updateThemeIcon(currentTheme);
+
+    if (themeBtn) {
+        themeBtn.addEventListener("click", () => {
+            const nextTheme = htmlEl.getAttribute("data-bs-theme") === "dark" ? "light" : "dark";
+            htmlEl.setAttribute("data-bs-theme", nextTheme);
+            localStorage.setItem("salaoapp_theme", nextTheme);
+            updateThemeIcon(nextTheme);
+        });
+    }
+
+    // 3. Efeito Spotlight nos Bento Cards
     document.querySelectorAll(".bento-card").forEach((card) => {
         card.addEventListener("mousemove", (e) => {
             const rect = card.getBoundingClientRect();
@@ -16,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 3. Animação de entrada GSAP
+    // 4. Animação de entrada GSAP
     if (typeof gsap !== "undefined" && document.querySelector(".gsap-hero")) {
         gsap.from(".gsap-hero", {
             y: 22,
@@ -27,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 4. Filtro Instantâneo nas Tabelas
+    // 5. Filtro Instantâneo nas Tabelas
     document.querySelectorAll("table.table").forEach((table) => {
         if (table.dataset.searchEnhanced) return;
         table.dataset.searchEnhanced = "true";
