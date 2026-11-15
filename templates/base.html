@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}SalãoApp Studio — Gestão & Estética{% endblock title %}</title>
 
+    <!-- Aplica o tema salvo (Claro ou Escuro) antes de renderizar a página -->
+    <script>
+        document.documentElement.setAttribute('data-bs-theme', localStorage.getItem('salaoapp_theme') || 'dark');
+    </script>
+
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,10 +27,8 @@
 <body>
     <div class="aurora-bg"></div>
 
-    <!-- Menu Isolado em Partial -->
     {% include 'partials/_navbar.html' %}
 
-    <!-- Conteúdo de Cada Módulo -->
     <main class="container pb-5">
         {% block body %}
         {% endblock body %}
