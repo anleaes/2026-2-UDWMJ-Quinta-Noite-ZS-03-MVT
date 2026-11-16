@@ -12,6 +12,7 @@ SECRET_KEY = config('SECRET_KEY', default='django-insecure-salaoapp-zs03-2026')
 DEBUG = config('DEBUG', default=True, cast=bool)
 ALLOWED_HOSTS = ['*']
 
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -20,10 +21,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
+
+    # Aplicativos principais do projeto.
     'core.apps.CoreConfig',
     'especialidades.apps.EspecialidadesConfig',
     'procedimentos.apps.ProcedimentosConfig',
+
+    # Aplicativos responsáveis pelos cadastros relacionados.
+    'clientes.apps.ClientesConfig',
+    'profissionais.apps.ProfissionaisConfig',
+    'estacoes.apps.EstacoesConfig',
+
+    # Aplicativos da parte operacional e financeira.
+    'agendamentos.apps.AgendamentosConfig',
+    'atendimentos.apps.AtendimentosConfig',
+    'pagamentos.apps.PagamentosConfig',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
