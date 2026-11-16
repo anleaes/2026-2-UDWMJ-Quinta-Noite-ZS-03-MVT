@@ -1,0 +1,77 @@
+
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}{{ titulo }} - {{ block.super }}{% endblock title %}
+
+{% block body %}
+<div class="row justify-content-center" data-aos="zoom-in-up">
+    <div class="col-lg-8">
+        <div class="bento-card">
+            <div class="card-header p-3">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="icon-box"><i data-lucide="armchair"></i></div>
+                    <div>
+                        <h5 class="mb-0 fw-bold">{{ titulo }}</h5>
+                        <small class="text-secondary">Informe os dados da estação de atendimento</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body p-4">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    {{ form.non_field_errors }}
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">{{ form.identificacao.label }}</label>
+                        {{ form.identificacao }}
+                        {{ form.identificacao.errors }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">{{ form.numero_cadeira.label }}</label>
+                        {{ form.numero_cadeira }}
+                        {{ form.numero_cadeira.errors }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">{{ form.ambiente.label }}</label>
+                        {{ form.ambiente }}
+                        {{ form.ambiente.errors }}
+                    </div>
+
+                    <div class="p-3 rounded-3 border border-secondary border-opacity-25 mb-3">
+                        <div class="form-check mb-2">
+                            {{ form.possui_lavatorio }}
+                            <label class="form-check-label">{{ form.possui_lavatorio.label }}</label>
+                        </div>
+
+                        <div class="form-check">
+                            {{ form.higienizada }}
+                            <label class="form-check-label">{{ form.higienizada.label }}</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">{{ form.foto_espaco.label }}</label>
+                        {{ form.foto_espaco }}
+                        {{ form.foto_espaco.errors }}
+                    </div>
+
+                    <div class="d-flex justify-content-end gap-2 mt-4">
+                        <a href="{% url 'estacoes:listar_estacoes' %}" class="btn btn-outline-light px-4">
+                            Cancelar
+                        </a>
+
+                        <button type="submit" class="btn btn-primary d-flex align-items-center gap-2 px-4">
+                            <i data-lucide="check" size="18"></i> Salvar Estação
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
