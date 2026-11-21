@@ -14,4 +14,5 @@ urlpatterns = [
 
     # Aplicativos desenvolvidos pelo Joshua.
     path('estacoes/', include('estacoes.urls', namespace='estacoes')),
+    path('pagamentos/', include('pagamentos.urls', namespace='pagamentos')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

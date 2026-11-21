@@ -1,0 +1,46 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Excluir Pagamento - {{ block.super }}{% endblock title %}
+
+{% block body %}
+<div class="d-flex align-items-center gap-3 mb-4" data-aos="fade-down">
+    <div class="icon-box"><i data-lucide="trash-2"></i></div>
+    <div>
+        <h4 class="fw-bold mb-0">Excluir Pagamento</h4>
+        <small class="text-secondary">Confirmação de exclusão de registro</small>
+    </div>
+</div>
+
+<div class="bento-card p-4 shadow-sm" data-aos="fade-up">
+    <div class="text-center py-3">
+        <i data-lucide="alert-triangle" size="48" class="text-warning mb-3"></i>
+
+        <h5 class="fw-bold">Deseja realmente excluir este pagamento?</h5>
+
+        <p class="text-secondary mt-3">
+            Pagamento #{{ pagamento.id }} — {{ pagamento.get_forma_pagamento_display }}
+        </p>
+
+        <p class="text-secondary">
+            Valor: R$ {{ pagamento.valor_total_servicos }}
+        </p>
+
+        <p class="text-secondary">
+            Esta ação não poderá ser desfeita.
+        </p>
+    </div>
+
+    <form method="POST" class="d-flex justify-content-center gap-2 mt-3">
+        {% csrf_token %}
+
+        <a href="{% url 'pagamentos:listar_pagamentos' %}" class="btn btn-outline-light">
+            Cancelar
+        </a>
+
+        <button type="submit" class="btn btn-danger d-flex align-items-center gap-2">
+            <i data-lucide="trash-2" size="18"></i> Confirmar Exclusão
+        </button>
+    </form>
+</div>
+{% endblock body %}
