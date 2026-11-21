@@ -45,6 +45,10 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+
+    # Exige autenticação para acessar as páginas do sistema.
+    'django.contrib.auth.middleware.LoginRequiredMiddleware',
+
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -95,3 +99,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Configurações de autenticação e redirecionamento.
+LOGIN_URL = 'core:login'
+LOGIN_REDIRECT_URL = 'core:home'
+LOGOUT_REDIRECT_URL = 'core:login'
