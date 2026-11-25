@@ -1,12 +1,12 @@
 from django.db import models
-from especialidades.models import Especialidade
+from categorias.models import Categoria
 
 class Procedimento(models.Model):
     nome = models.CharField('Nome do Procedimento', max_length=100)
-    especialidade = models.ForeignKey(
-        Especialidade,
+    categoria = models.ForeignKey(
+        Categoria,
         on_delete=models.CASCADE,
-        verbose_name='Especialidade Técnica'
+        verbose_name='Categoria Técnica'
     )
     descricao = models.TextField('Descrição e Etapas', max_length=300)
     preco = models.DecimalField('Preço (R$)', max_digits=8, decimal_places=2)

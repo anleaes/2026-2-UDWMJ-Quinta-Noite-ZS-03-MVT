@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
-{% block title %}Lista de Especialidades - {{ block.super }}{% endblock title %}
+{% block title %}Lista de Categorias - {{ block.super }}{% endblock title %}
 
 {% block body %}
 <div class="d-flex justify-content-between align-items-center mb-4" data-aos="fade-down">
     <div class="d-flex align-items-center gap-3">
         <div class="icon-box"><i data-lucide="award"></i></div>
         <div>
-            <h4 class="fw-bold mb-0">Especialidades do Salão</h4>
+            <h4 class="fw-bold mb-0">Categorias do Salão</h4>
             <small class="text-secondary">Áreas técnicas e exigências de biossegurança</small>
         </div>
     </div>
-    <a href="{% url 'especialidades:add_especialidade' %}" class="btn btn-primary d-flex align-items-center gap-2">
-        <i data-lucide="plus" size="18"></i> Nova Especialidade
+    <a href="{% url 'categorias:add_categoria' %}" class="btn btn-primary d-flex align-items-center gap-2">
+        <i data-lucide="plus" size="18"></i> Nova Categoria
     </a>
 </div>
 
@@ -30,7 +30,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for item in especialidades %}
+                {% for item in categorias %}
                 <tr>
                     <td>#{{ item.id }}</td>
                     <td class="fw-semibold">{{ item.nome }}</td>
@@ -38,14 +38,14 @@
                     <td>{% if item.exige_biosseguranca %}Sim{% else %}Não{% endif %}</td>
                     <td>{% if item.ativa %}Ativa{% else %}Inativa{% endif %}</td>
                     <td class="text-end">
-                        <a href="{% url 'especialidades:edit_especialidade' item.id %}" class="btn btn-sm btn-outline-warning">Editar</a>
-                        <a href="{% url 'especialidades:delete_especialidade' item.id %}" class="btn btn-sm btn-outline-danger">Excluir</a>
+                        <a href="{% url 'categorias:edit_categoria' item.id %}" class="btn btn-sm btn-outline-warning">Editar</a>
+                        <a href="{% url 'categorias:delete_categoria' item.id %}" class="btn btn-sm btn-outline-danger">Excluir</a>
                     </td>
                 </tr>
                 {% empty %}
                 <tr>
                     <td colspan="6" class="text-center py-4 text-secondary">
-                        Nenhuma especialidade cadastrada.
+                        Nenhuma categoria cadastrada.
                     </td>
                 </tr>
                 {% endfor %}

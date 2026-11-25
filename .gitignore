@@ -14,8 +14,8 @@ media/*
 /salaoapp/__pycache__/*
 /apps/core/__pycache__/*
 /apps/core/migrations/*
-/apps/especialidades/__pycache__/*
-/apps/especialidades/migrations/*
+/apps/categorias/__pycache__/*
+/apps/categorias/migrations/*
 /apps/procedimentos/__pycache__/*
 /apps/procedimentos/migrations/*
 /apps/pacotes/__pycache__/*

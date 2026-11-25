@@ -12,11 +12,11 @@
                     <div class="icon-box"><i data-lucide="sparkles"></i></div>
                     <div>
                         <h5 class="mb-0 fw-bold">Configurar Procedimento</h5>
-                        <small class="text-secondary">Defina valores, tempo de cadeira, especialidade e arquivos técnicos</small>
+                        <small class="text-secondary">Defina valores, tempo de cadeira, categoria e arquivos técnicos</small>
                     </div>
                 </div>
-                <a href="{% url 'especialidades:add_especialidade' %}" class="btn btn-sm btn-outline-light d-flex align-items-center gap-1">
-                    <i data-lucide="plus" size="14"></i> Nova Especialidade
+                <a href="{% url 'categorias:add_categoria' %}" class="btn btn-sm btn-outline-light d-flex align-items-center gap-1">
+                    <i data-lucide="plus" size="14"></i> Nova categoria
                 </a>
             </div>
             <div class="card-body p-4">
@@ -28,8 +28,8 @@
                             {{ form.nome|add_class:"form-control"|attr:"placeholder:Ex: Mechas Criativas + Tratamento" }}
                         </div>
                         <div class="col-md-5">
-                            <label class="form-label fw-semibold">{{ form.especialidade.label }}</label>
-                            {{ form.especialidade|add_class:"form-select" }}
+                            <label class="form-label fw-semibold">{{ form.categoria.label }}</label>
+                            {{ form.categoria|add_class:"form-select" }}
                         </div>
                         <div class="col-md-6">
                             <label class="form-label fw-semibold">{{ form.preco.label }}</label>

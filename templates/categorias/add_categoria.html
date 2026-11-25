@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% load widget_tweaks %}
 
-{% block title %}Cadastro de Especialidade - {{ block.super }}{% endblock title %}
+{% block title %}Cadastro de Categorias - {{ block.super }}{% endblock title %}
 
 {% block body %}
 <div class="card shadow-sm">
     <div class="card-header bg-dark text-white">
-        <h5 class="mb-0">Cadastro de Especialidade</h5>
+        <h5 class="mb-0">Cadastro de Categoria</h5>
     </div>
     <div class="card-body">
         <form action="" method="POST">
@@ -32,7 +32,7 @@
                 <label class="form-check-label">{{ form.ativa.label }}</label>
             </div>
             <button type="submit" class="btn btn-primary">Salvar</button>
-            <a href="{% url 'especialidades:list_especialidades' %}" class="btn btn-secondary">Voltar</a>
+            <a href="{% url 'categorias:list_categorias' %}" class="btn btn-secondary">Voltar</a>
         </form>
     </div>
 </div>

@@ -17,7 +17,7 @@ def add_procedimento(request):
 
 def list_procedimentos(request):
     template_name = 'procedimentos/list_procedimentos.html'
-    procedimentos = Procedimento.objects.select_related('especialidade').all()
+    procedimentos = Procedimento.objects.select_related('categoria').all()
     context = {
         'procedimentos': procedimentos
     }

@@ -21,7 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'widget_tweaks',
     'core.apps.CoreConfig',
-    'especialidades.apps.EspecialidadesConfig',
+    'categorias.apps.CategoriasConfig',
     'procedimentos.apps.ProcedimentosConfig',
 ]
 
