@@ -8,4 +8,5 @@ urlpatterns = [
     path('', include('core.urls', namespace='core')),
     path('categorias/', include('categorias.urls', namespace='categorias')),
     path('procedimentos/', include('procedimentos.urls', namespace='procedimentos')),
+    path('avaliacoes/', include('avaliacoes.urls', namespace='avaliacoes')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

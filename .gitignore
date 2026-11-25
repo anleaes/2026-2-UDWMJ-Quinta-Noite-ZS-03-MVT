@@ -20,8 +20,8 @@ media/*
 /apps/procedimentos/migrations/*
 /apps/pacotes/__pycache__/*
 /apps/pacotes/migrations/*
-/apps/estacoes/__pycache__/*
-/apps/estacoes/migrations/*
+/apps/avaliacoes/__pycache__/*
+/apps/avaliacoes/migrations/*
 /apps/pessoas/__pycache__/*
 /apps/pessoas/migrations/*
 /apps/profissionais/__pycache__/*
@@ -38,3 +38,6 @@ media/*
 /apps/atendimentos/migrations/*
 /apps/pagamentos/__pycache__/*
 /apps/pagamentos/migrations/*
+ # Arquivos temporários Python
+__pycache__/
+*.py[cod]
