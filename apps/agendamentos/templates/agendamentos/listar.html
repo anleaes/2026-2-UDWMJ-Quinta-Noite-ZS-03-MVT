@@ -1,0 +1,56 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container mt-4">
+    <h2>Agendamentos</h2>
+
+    <a href="{% url 'agendamentos:criar_agendamento' %}" class="btn btn-primary mb-3">
+        Novo Agendamento
+    </a>
+
+    {% if agendamentos %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Profissional</th>
+                    <th>Estação</th>
+                    <th>Início</th>
+                    <th>Término</th>
+                    <th>Status</th>
+                    <th>WhatsApp</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for agendamento in agendamentos %}
+                <tr>
+                    <td>{{ agendamento.cliente }}</td>
+                    <td>{{ agendamento.profissional }}</td>
+                    <td>{{ agendamento.estacao }}</td>
+                    <td>{{ agendamento.data_hora_inicio|date:"d/m/Y H:i" }}</td>
+                    <td>{{ agendamento.data_hora_fim|date:"d/m/Y H:i" }}</td>
+                    <td>{{ agendamento.get_status_agendamento_display }}</td>
+                    <td>
+                        {% if agendamento.confirmado_whatsapp %}
+                            Sim
+                        {% else %}
+                            Não
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{% url 'agendamentos:editar_agendamento' agendamento.id %}" class="btn btn-warning btn-sm">Editar</a>
+
+                        <a href="{% url 'agendamentos:excluir_agendamento' agendamento.id %}" class="btn btn-danger btn-sm">Excluir</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Nenhum agendamento cadastrado.</p>
+    {% endif %}
+</div>
+{% endblock %}

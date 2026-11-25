@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container mt-4">
+    <h2>
+        {% if agendamento %}
+            Editar Agendamento
+        {% else %}
+            Cadastrar Agendamento
+        {% endif %}
+    </h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+
+        <a href="{% url 'agendamentos:listar_agendamentos' %}" class="btn btn-secondary">
+            Cancelar
+        </a>
+    </form>
+</div>
+{% endblock %}
