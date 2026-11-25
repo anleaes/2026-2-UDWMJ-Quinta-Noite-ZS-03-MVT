@@ -1,0 +1,62 @@
+
+{% extends 'base.html' %}
+
+{% block title %}{{ titulo }} - {{ block.super }}{% endblock title %}
+
+{% block body %}
+<div class="d-flex justify-content-between align-items-center mb-4" data-aos="fade-down">
+    <div class="d-flex align-items-center gap-3">
+        <div class="icon-box"><i data-lucide="wallet"></i></div>
+        <div>
+            <h4 class="fw-bold mb-0">{{ titulo }}</h4>
+            <small class="text-secondary">Preencha os dados do pagamento</small>
+        </div>
+    </div>
+
+    <a href="{% url 'pagamentos:listar_pagamentos' %}" class="btn btn-outline-light">
+        Voltar
+    </a>
+</div>
+
+<div class="bento-card p-4 shadow-sm" data-aos="fade-up">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+        <div class="row g-3">
+            {% for field in form %}
+                <div class="col-md-6">
+                    <label for="{{ field.id_for_label }}" class="form-label fw-semibold">
+                        {{ field.label }}
+                    </label>
+
+                    {{ field }}
+
+                    {% if field.help_text %}
+                        <small class="text-secondary">{{ field.help_text }}</small>
+                    {% endif %}
+
+                    {% for error in field.errors %}
+                        <div class="text-danger small mt-1">{{ error }}</div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="d-flex justify-content-end gap-2 mt-4">
+            <a href="{% url 'pagamentos:listar_pagamentos' %}" class="btn btn-outline-light">
+                Cancelar
+            </a>
+
+            <button type="submit" class="btn btn-primary d-flex align-items-center gap-2">
+                <i data-lucide="save" size="18"></i> Salvar Pagamento
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock body %}
