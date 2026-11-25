@@ -24,6 +24,11 @@ INSTALLED_APPS = [
     'categorias.apps.CategoriasConfig',
     'procedimentos.apps.ProcedimentosConfig',
     'avaliacoes.apps.AvaliacoesConfig',
+    'agendamentos.apps.AgendamentosConfig',
+    'atendimentos.apps.AtendimentosConfig',
+    'pagamentos.apps.PagamentosConfig',
+    'clientes.apps.ClientesConfig',
+    'profissionais.apps.ProfissionaisConfig',
 ]
 
 MIDDLEWARE = [
@@ -34,9 +39,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.LoginRequiredMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
 ]
 
 ROOT_URLCONF = 'salaoapp.urls'
+LOGIN_URL = 'core:login'
+LOGIN_REDIRECT_URL = 'core:home'
+LOGOUT_REDIRECT_URL = 'core:login'
 
 TEMPLATES = [
     {
