@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container mt-4">
+    <h2>Excluir Item de Atendimento</h2>
+
+    <p>
+        Tem certeza de que deseja excluir o item referente ao procedimento
+        <strong>{{ atendimento.procedimento }}</strong>
+        do agendamento <strong>{{ atendimento.agendamento }}</strong>?
+    </p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <button type="submit" class="btn btn-danger">
+            Confirmar Exclusão
+        </button>
+
+        <a href="{% url 'atendimentos:listar_atendimentos' %}" class="btn btn-secondary">
+            Cancelar
+        </a>
+    </form>
+</div>
+{% endblock %}
