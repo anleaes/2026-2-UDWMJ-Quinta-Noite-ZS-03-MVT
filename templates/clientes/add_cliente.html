@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}Cadastro de Cliente - {{ block.super }}{% endblock title %}
+
+{% block body %}
+<div class="card shadow-sm">
+    <div class="card-header bg-dark text-white">
+        <h5 class="mb-0">Cadastro de Cliente</h5>
+    </div>
+    <div class="card-body">
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                <strong>Verifique os campos abaixo:</strong>
+                {{ form.errors }}
+            </div>
+        {% endif %}
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">{{ form.pessoa.label }}</label>
+                    {{ form.pessoa|add_class:"form-select" }}
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">{{ form.pontos_fidelidade.label }}</label>
+                    {{ form.pontos_fidelidade|add_class:"form-control" }}
+                </div>
+                <div class="col-md-3 mb-3 d-flex align-items-end">
+                    <div class="form-check mb-2">
+                        {{ form.ativo|add_class:"form-check-input" }}
+                        <label class="form-check-label">{{ form.ativo.label }}</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">{{ form.preferencias.label }}</label>
+                {{ form.preferencias|add_class:"form-control" }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a href="{% url 'clientes:list_clientes' %}" class="btn btn-secondary">Voltar</a>
+        </form>
+    </div>
+</div>
+{% endblock body %}
