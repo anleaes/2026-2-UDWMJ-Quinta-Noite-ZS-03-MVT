@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}Cadastro de Produto - {{ block.super }}{% endblock title %}
+
+{% block body %}
+<div class="card shadow-sm">
+    <div class="card-header bg-dark text-white">
+        <h5 class="mb-0">Cadastro de Produto</h5>
+    </div>
+    <div class="card-body">
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                <strong>Verifique os campos abaixo:</strong>
+                {{ form.errors }}
+            </div>
+        {% endif %}
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">{{ form.nome.label }}</label>
+                    {{ form.nome|add_class:"form-control" }}
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">{{ form.categoria.label }}</label>
+                    {{ form.categoria|add_class:"form-select" }}
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">{{ form.marca.label }}</label>
+                    {{ form.marca|add_class:"form-control" }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">{{ form.preco.label }}</label>
+                    {{ form.preco|add_class:"form-control" }}
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">{{ form.estoque.label }}</label>
+                    {{ form.estoque|add_class:"form-control" }}
+                </div>
+                <div class="col-md-4 mb-3 d-flex align-items-end">
+                    <div class="form-check mb-2">
+                        {{ form.ativo|add_class:"form-check-input" }}
+                        <label class="form-check-label">{{ form.ativo.label }}</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">{{ form.descricao.label }}</label>
+                {{ form.descricao|add_class:"form-control" }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a href="{% url 'produtos:list_produtos' %}" class="btn btn-secondary">Voltar</a>
+        </form>
+    </div>
+</div>
+{% endblock body %}
