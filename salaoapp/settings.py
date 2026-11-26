@@ -1,3 +1,4 @@
+
 import os
 import sys
 from pathlib import Path
@@ -20,6 +21,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
+
+    # Aplicativos do projeto
     'core.apps.CoreConfig',
     'categorias.apps.CategoriasConfig',
     'procedimentos.apps.ProcedimentosConfig',
@@ -29,6 +32,8 @@ INSTALLED_APPS = [
     'pagamentos.apps.PagamentosConfig',
     'clientes.apps.ClientesConfig',
     'profissionais.apps.ProfissionaisConfig',
+    'pessoas.apps.PessoasConfig',
+    'produtos.apps.ProdutosConfig',
 ]
 
 MIDDLEWARE = [
@@ -37,11 +42,9 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.LoginRequiredMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'salaoapp.urls'

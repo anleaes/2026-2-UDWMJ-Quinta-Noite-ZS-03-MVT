@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}Cadastro de Pessoa - {{ block.super }}{% endblock title %}
+
+{% block body %}
+<div class="card shadow-sm">
+    <div class="card-header bg-dark text-white">
+        <h5 class="mb-0">Cadastro de Pessoa</h5>
+    </div>
+    <div class="card-body">
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                <strong>Verifique os campos abaixo:</strong>
+                {{ form.errors }}
+            </div>
+        {% endif %}
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">{{ form.nome.label }}</label>
+                    {{ form.nome|add_class:"form-control" }}
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">{{ form.cpf.label }}</label>
+                    {{ form.cpf|add_class:"form-control" }}
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">{{ form.telefone.label }}</label>
+                    {{ form.telefone|add_class:"form-control" }}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">{{ form.email.label }}</label>
+                    {{ form.email|add_class:"form-control" }}
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">{{ form.data_nascimento.label }}</label>
+                    {{ form.data_nascimento|add_class:"form-control" }}
+                </div>
+                <div class="col-md-3 mb-3 d-flex align-items-end">
+                    <div class="form-check mb-2">
+                        {{ form.ativo|add_class:"form-check-input" }}
+                        <label class="form-check-label">{{ form.ativo.label }}</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">{{ form.endereco.label }}</label>
+                {{ form.endereco|add_class:"form-control" }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a href="{% url 'pessoas:list_pessoas' %}" class="btn btn-secondary">Voltar</a>
+        </form>
+    </div>
+</div>
+{% endblock body %}
