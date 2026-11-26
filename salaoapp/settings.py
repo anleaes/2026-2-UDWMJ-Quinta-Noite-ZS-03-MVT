@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'categorias.apps.CategoriasConfig',
     'procedimentos.apps.ProcedimentosConfig',
     'pessoas.apps.PessoasConfig',
+    'clientes.apps.ClientesConfig',
 ]
 
 MIDDLEWARE = [
