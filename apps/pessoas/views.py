@@ -26,8 +26,8 @@ def list_pessoas(request):
     }
     return render(request, template_name, context)
 
-    def edit_pessoa(request, id_pessoa):
-    template_name = 'pessoas/add_pessoa.html'
+def edit_pessoa(request, id_pessoa):
+    template_name = 'pessoas/add_pessoas.html'
     context = {}
     pessoa = get_object_or_404(Pessoa, id=id_pessoa)
     if request.method == 'POST':
