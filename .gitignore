@@ -3,6 +3,7 @@
 wallet/
 *.sso
 *.ora
+*.p12
 venv/
 .venv/
 db.sqlite3
@@ -14,6 +15,14 @@ media/*
 /salaoapp/__pycache__/*
 /apps/core/__pycache__/*
 /apps/core/migrations/*
+/apps/categorias/__pycache__/*
+/apps/categorias/migrations/*
+/apps/procedimentos/__pycache__/*
+/apps/procedimentos/migrations/*
+/apps/pacotes/__pycache__/*
+/apps/pacotes/migrations/*
+/apps/avaliacoes/__pycache__/*
+/apps/avaliacoes/migrations/*
 /apps/pessoas/__pycache__/*
 /apps/pessoas/migrations/*
 /apps/clientes/__pycache__/*
@@ -22,22 +31,22 @@ media/*
 /apps/profissionais/migrations/*
 /apps/escalas/__pycache__/*
 /apps/escalas/migrations/*
-/apps/categorias/__pycache__/*
-/apps/categorias/migrations/*
-/apps/procedimentos/__pycache__/*
-/apps/procedimentos/migrations/*
-/apps/produtos/__pycache__/*
-/apps/produtos/migrations/*
-/apps/assinaturas/__pycache__/*
-/apps/assinaturas/migrations/*
+/apps/anamneses/__pycache__/*
+/apps/anamneses/migrations/*
 /apps/agendamentos/__pycache__/*
 /apps/agendamentos/migrations/*
 /apps/atendimentos/__pycache__/*
 /apps/atendimentos/migrations/*
 /apps/pagamentos/__pycache__/*
 /apps/pagamentos/migrations/*
-/apps/avaliacoes/__pycache__/*
-/apps/avaliacoes/migrations/*
+/apps/produtos/__pycache__/*
+/apps/produtos/migrations/*
+/apps/assinaturas/__pycache__/*
+/apps/assinaturas/migrations/*
 
-# Mantém o __init__.py das migrations no Git para o makemigrations funcionar no time todo
+# Mantém o __init__.py das migrations no Git
 !**/migrations/__init__.py
+
+# Arquivos temporários Python
+__pycache__/
+*.py[cod]

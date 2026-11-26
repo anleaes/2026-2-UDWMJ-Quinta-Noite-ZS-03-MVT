@@ -1,0 +1,48 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container mt-4">
+    <h2>Itens de Atendimento</h2>
+
+    <a href="{% url 'atendimentos:criar_atendimento' %}" class="btn btn-primary mb-3">
+        Novo Item de Atendimento
+    </a>
+
+    {% if atendimentos %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Agendamento</th>
+                    <th>Procedimento</th>
+                    <th>Valor</th>
+                    <th>Desconto</th>
+                    <th>Tempo (min)</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for atendimento in atendimentos %}
+                <tr>
+                    <td>{{ atendimento.agendamento }}</td>
+                    <td>{{ atendimento.procedimento }}</td>
+                    <td>R$ {{ atendimento.valor_cobrado }}</td>
+                    <td>R$ {{ atendimento.desconto_aplicado }}</td>
+                    <td>{{ atendimento.tempo_real_minutos }}</td>
+                    <td>
+                        <a href="{% url 'atendimentos:editar_atendimento' atendimento.id %}" class="btn btn-warning btn-sm">
+                            Editar
+                        </a>
+                        <a href="{% url 'atendimentos:excluir_atendimento' atendimento.id %}" class="btn btn-danger btn-sm">
+                            Excluir
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Nenhum item de atendimento cadastrado.</p>
+    {% endif %}
+</div>
+{% endblock %}
