@@ -10,5 +10,10 @@ class Pessoa(models.Model):
     endereco = models.CharField('Endereço', max_length=250, blank=True, null=True)
     ativo = models.BooleanField('Ativo', default=True)
 
+    class Meta:
+        verbose_name = 'Pessoa'
+        verbose_name_plural = 'Pessoas'
+        ordering = ['nome']
+
     def __str__(self):
         return f'{self.nome} ({self.cpf})'
