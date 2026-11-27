@@ -1,0 +1,30 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Cadastro concluído | SalãoApp{% endblock title %}
+
+{% block body %}
+<div class="row justify-content-center py-5">
+    <div class="col-lg-6 col-md-8">
+        <div class="bento-card p-4 p-md-5 text-center" data-aos="fade-up">
+
+            <div class="mb-4">
+                <i data-lucide="check-circle" style="width: 64px; height: 64px; color: #198754;"></i>
+            </div>
+
+            <h2 class="fw-bold mb-3" style="font-family: 'Playfair Display', serif;">
+                Cadastro realizado!
+            </h2>
+
+            <p class="text-secondary mb-4">
+                Seu usuário foi cadastrado com sucesso no SalãoApp.
+            </p>
+
+            <a href="/" class="btn btn-primary px-4 py-2">
+                Voltar ao início
+            </a>
+
+        </div>
+    </div>
+</div>
+{% endblock body %}
