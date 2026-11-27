@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-custom sticky-top mb-4 py-3">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="{% url 'core:home' %}">
             <i data-lucide="sparkles" class="text-danger"></i>
             <span class="brand-logo fw-bold">SalãoApp Studio</span>
         </a>
@@ -10,49 +10,44 @@
         </button>
 
         <div class="collapse navbar-collapse" id="menuPrincipal">
-            <!-- Menus colados ao lado do SalãoApp Studio na ordem 1 a 12 -->
             <ul class="navbar-nav me-auto ms-lg-3 gap-1">
-                <!-- Frente 1: Módulos 1 a 4 -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#" data-bs-toggle="dropdown">
                         <i data-lucide="scissors" size="17"></i> Catálogo & Espaço
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/categorias/"><i data-lucide="award" size="16"></i> 1. categorias</a></li>
-                        <li><a class="dropdown-item" href="/procedimentos/"><i data-lucide="sparkles" size="16"></i> 2. Procedimentos & Serviços</a></li>
-                        <li><a class="dropdown-item" href="/pacotes/"><i data-lucide="gift" size="16"></i> 3. Pacotes & Combos</a></li>
-                        <li><a class="dropdown-item" href="/estacoes/"><i data-lucide="armchair" size="16"></i> 4. Estações / Cadeiras</a></li>
+                        <li><a class="dropdown-item" href="{% url 'categorias:list_categorias' %}"><i data-lucide="tag" size="16"></i> 1. Categorias</a></li>
+                        <li><a class="dropdown-item" href="{% url 'procedimentos:list_procedimentos' %}"><i data-lucide="sparkles" size="16"></i> 2. Procedimentos</a></li>
+                        <li><a class="dropdown-item" href="{% url 'produtos:list_produtos' %}"><i data-lucide="package" size="16"></i> 3. Produtos</a></li>
+                        <li><a class="dropdown-item" href="{% url 'avaliacoes:listar_estacoes' %}"><i data-lucide="armchair" size="16"></i> 4. Estações</a></li>
                     </ul>
                 </li>
 
-                <!-- Frente 2: Módulos 5 a 8 -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#" data-bs-toggle="dropdown">
-                        <i data-lucide="heart-handshake" size="17"></i> Pessoas & Anamnese
+                        <i data-lucide="users" size="17"></i> Pessoas & Planos
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/pessoas/"><i data-lucide="user-check" size="16"></i> 5. Pessoas (Cadastro Base)</a></li>
-                        <li><a class="dropdown-item" href="/profissionais/"><i data-lucide="badge-check" size="16"></i> 6. Profissionais & Comissões</a></li>
-                        <li><a class="dropdown-item" href="/clientes/"><i data-lucide="users" size="16"></i> 7. Clientes VIP & Fidelidade</a></li>
-                        <li><a class="dropdown-item" href="/anamneses/"><i data-lucide="clipboard-list" size="16"></i> 8. Fichas de Anamnese</a></li>
+                        <li><a class="dropdown-item" href="{% url 'pessoas:list_pessoas' %}"><i data-lucide="user-check" size="16"></i> 5. Pessoas</a></li>
+                        <li><a class="dropdown-item disabled opacity-50" href="#"><i data-lucide="badge-check" size="16"></i> 6. Profissionais <span class="badge bg-secondary ms-auto">Em breve</span></a></li>
+                        <li><a class="dropdown-item" href="{% url 'clientes:list_clientes' %}"><i data-lucide="user-round" size="16"></i> 7. Clientes</a></li>
+                        <li><a class="dropdown-item disabled opacity-50" href="#"><i data-lucide="crown" size="16"></i> 8. Assinaturas <span class="badge bg-secondary ms-auto">Em breve</span></a></li>
                     </ul>
                 </li>
 
-                <!-- Frente 3: Módulos 9 a 12 -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle d-flex align-items-center gap-1" href="#" data-bs-toggle="dropdown">
                         <i data-lucide="calendar-clock" size="17"></i> Agenda & Caixa
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/escalas/"><i data-lucide="clock" size="16"></i> 9. Escalas de Horário</a></li>
-                        <li><a class="dropdown-item" href="/agendamentos/"><i data-lucide="calendar-check" size="16"></i> 10. Agendamentos</a></li>
-                        <li><a class="dropdown-item" href="/atendimentos/"><i data-lucide="wand-2" size="16"></i> 11. Itens do Atendimento</a></li>
-                        <li><a class="dropdown-item" href="/pagamentos/"><i data-lucide="wallet" size="16"></i> 12. Pagamentos (Caixa)</a></li>
+                        <li><a class="dropdown-item disabled opacity-50" href="#"><i data-lucide="clock" size="16"></i> 9. Escalas <span class="badge bg-secondary ms-auto">Em breve</span></a></li>
+                        <li><a class="dropdown-item" href="{% url 'agendamentos:listar_agendamentos' %}"><i data-lucide="calendar-check" size="16"></i> 10. Agendamentos</a></li>
+                        <li><a class="dropdown-item" href="{% url 'atendimentos:listar_atendimentos' %}"><i data-lucide="clipboard-check" size="16"></i> 11. Atendimentos</a></li>
+                        <li><a class="dropdown-item" href="{% url 'pagamentos:listar_pagamentos' %}"><i data-lucide="wallet" size="16"></i> 12. Pagamentos</a></li>
                     </ul>
                 </li>
             </ul>
 
-            <!-- Canto Direito: Tema Claro/Escuro, Status OCI e Botão Admin -->
             <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
                 <button type="button" id="themeToggleBtn" class="btn-glass d-flex align-items-center justify-content-center" title="Alternar Tema Claro/Escuro">
                     <i data-lucide="sun" size="16"></i>
@@ -67,6 +62,21 @@
                     <i data-lucide="shield" size="15"></i>
                     <span class="small fw-semibold">Admin</span>
                 </a>
+
+                {% if user.is_authenticated %}
+                <form action="{% url 'core:logout' %}" method="post" class="d-inline m-0">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-glass d-flex align-items-center gap-1" title="Sair do Sistema">
+                        <i data-lucide="log-out" size="15"></i>
+                        <span class="small fw-semibold">Sair</span>
+                    </button>
+                </form>
+                {% else %}
+                <a href="{% url 'core:login' %}" class="btn-glass text-decoration-none d-flex align-items-center gap-1" title="Entrar">
+                    <i data-lucide="log-in" size="15"></i>
+                    <span class="small fw-semibold">Entrar</span>
+                </a>
+                {% endif %}
             </div>
         </div>
     </div>

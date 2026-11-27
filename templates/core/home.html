@@ -11,71 +11,122 @@
         Gestão de Alta Performance para <span style="color: #fb7185;">Beleza & Estética</span>
     </h1>
     <p class="text-secondary col-lg-7 mx-auto mb-4 gsap-hero">
-        Controle clínico de anamnese capilar, escala inteligente de profissionais, ocupação de cadeiras e agendamento multi-serviços em tempo real.
+        Controle completo de catálogo de serviços e produtos, gestão de pessoas, clientes e assinaturas, escalas de equipe, agendamentos e caixa em tempo real.
     </p>
-    <div class="d-flex justify-content-center gap-3 gsap-hero">
-        <a href="/categorias/" class="btn btn-primary d-flex align-items-center gap-2 px-4 py-2">
+    <div class="d-flex justify-content-center flex-wrap gap-3 gsap-hero">
+        <a href="{% url 'categorias:list_categorias' %}" class="btn btn-primary d-flex align-items-center gap-2 px-4 py-2">
             <i data-lucide="scissors" size="18"></i> Explorar Catálogo
         </a>
-        <a href="/agendamentos/" class="btn btn-outline-light d-flex align-items-center gap-2 px-4 py-2">
-            <i data-lucide="calendar" size="18"></i> Abrir Agenda
+        <a href="{% url 'agendamentos:listar_agendamentos' %}" class="btn btn-outline-light d-flex align-items-center gap-2 px-4 py-2">
+            <i data-lucide="calendar-check" size="18"></i> Abrir Agenda
         </a>
     </div>
 </div>
 
 <div class="marquee-wrapper rounded-4 mb-5" data-aos="fade-in">
     <div class="marquee-content text-secondary small fw-semibold">
-        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Diagnóstico Capilar & Teste de Mecha</span>
-        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Controle de Biossegurança</span>
-        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Combos & Dia da Noiva</span>
-        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Alocação de Cadeiras e Lavatórios</span>
-        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Histórico Visual Antes & Depois</span>
-        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Comissionamento Automático</span>
+        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Catálogo de Categorias & Procedimentos</span>
+        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Controle de Estoque de Produtos</span>
+        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Cadastro Unificado de Pessoas & Clientes</span>
+        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Alocação de Estações</span>
+        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Agendamentos & Atendimentos</span>
+        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Controle de Pagamentos & Caixa</span>
+        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Catálogo de Categorias & Procedimentos</span>
+        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Controle de Estoque de Produtos</span>
+        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Cadastro Unificado de Pessoas & Clientes</span>
+        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Alocação de Estações</span>
+        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Agendamentos & Atendimentos</span>
+        <span class="mx-4"><i data-lucide="check-circle-2" size="14" class="text-danger me-1"></i> Controle de Pagamentos & Caixa</span>
     </div>
 </div>
 
 <div class="row g-4">
     <div class="col-md-4" data-aos="fade-up" data-aos-delay="50">
-        <div class="bento-card p-4 h-100">
-            <div class="d-flex align-items-center gap-3 mb-3">
+        <div class="bento-card p-4 h-100 d-flex flex-column">
+            <div class="d-flex align-items-center gap-3 mb-2">
                 <div class="icon-box"><i data-lucide="scissors"></i></div>
-                <h5 class="fw-bold mb-0">Catálogo & Espaço</h5>
+                <div>
+                    <h5 class="fw-bold mb-0">Catálogo & Espaço</h5>
+                    <small class="text-muted">Serviços, estoque e estrutura</small>
+                </div>
             </div>
-            <div class="d-grid gap-2">
-                <a href="/categorias/" class="btn btn-outline-light text-start">1. categorias</a>
-                <a href="/procedimentos/" class="btn btn-outline-light text-start">2. Procedimentos</a>
-                <a href="/pacotes/" class="btn btn-outline-light text-start">3. Pacotes Estéticos</a>
-                <a href="/estacoes/" class="btn btn-outline-light text-start">4. Estações / Cadeiras</a>
+            <div class="d-grid gap-2 mt-3">
+                <a href="{% url 'categorias:list_categorias' %}" class="btn btn-outline-light d-flex align-items-center justify-content-between px-3 py-2">
+                    <span class="d-flex align-items-center gap-2"><i data-lucide="tag" size="16"></i> 1. Categorias</span>
+                    <i data-lucide="arrow-right" size="15" class="text-muted"></i>
+                </a>
+                <a href="{% url 'procedimentos:list_procedimentos' %}" class="btn btn-outline-light d-flex align-items-center justify-content-between px-3 py-2">
+                    <span class="d-flex align-items-center gap-2"><i data-lucide="sparkles" size="16"></i> 2. Procedimentos</span>
+                    <i data-lucide="arrow-right" size="15" class="text-muted"></i>
+                </a>
+                <a href="{% url 'produtos:list_produtos' %}" class="btn btn-outline-light d-flex align-items-center justify-content-between px-3 py-2">
+                    <span class="d-flex align-items-center gap-2"><i data-lucide="package" size="16"></i> 3. Produtos</span>
+                    <i data-lucide="arrow-right" size="15" class="text-muted"></i>
+                </a>
+                <a href="{% url 'avaliacoes:listar_estacoes' %}" class="btn btn-outline-light d-flex align-items-center justify-content-between px-3 py-2">
+                    <span class="d-flex align-items-center gap-2"><i data-lucide="armchair" size="16"></i> 4. Estações</span>
+                    <i data-lucide="arrow-right" size="15" class="text-muted"></i>
+                </a>
             </div>
         </div>
     </div>
 
     <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
-        <div class="bento-card p-4 h-100">
-            <div class="d-flex align-items-center gap-3 mb-3">
-                <div class="icon-box"><i data-lucide="heart-handshake"></i></div>
-                <h5 class="fw-bold mb-0">Pessoas & Anamnese</h5>
+        <div class="bento-card p-4 h-100 d-flex flex-column">
+            <div class="d-flex align-items-center gap-3 mb-2">
+                <div class="icon-box"><i data-lucide="users"></i></div>
+                <div>
+                    <h5 class="fw-bold mb-0">Pessoas & Planos</h5>
+                    <small class="text-muted">Equipe, clientes e fidelidade</small>
+                </div>
             </div>
-            <div class="d-grid gap-2">
-                <a href="/pessoas/" class="btn btn-outline-light text-start">5. Pessoas (Base)</a>
-                <a href="/profissionais/" class="btn btn-outline-light text-start">6. Profissionais</a>
-                <a href="/clientes/" class="btn btn-outline-light text-start">7. Clientes VIP</a>
-                <a href="/anamneses/" class="btn btn-outline-light text-start">8. Fichas de Anamnese</a>
+            <div class="d-grid gap-2 mt-3">
+                <a href="{% url 'pessoas:list_pessoas' %}" class="btn btn-outline-light d-flex align-items-center justify-content-between px-3 py-2">
+                    <span class="d-flex align-items-center gap-2"><i data-lucide="user-check" size="16"></i> 5. Pessoas</span>
+                    <i data-lucide="arrow-right" size="15" class="text-muted"></i>
+                </a>
+                <a href="#" class="btn btn-outline-light disabled opacity-50 d-flex align-items-center justify-content-between px-3 py-2" aria-disabled="true">
+                    <span class="d-flex align-items-center gap-2"><i data-lucide="badge-check" size="16"></i> 6. Profissionais</span>
+                    <span class="badge bg-secondary">Em breve</span>
+                </a>
+                <a href="{% url 'clientes:list_clientes' %}" class="btn btn-outline-light d-flex align-items-center justify-content-between px-3 py-2">
+                    <span class="d-flex align-items-center gap-2"><i data-lucide="user-round" size="16"></i> 7. Clientes</span>
+                    <i data-lucide="arrow-right" size="15" class="text-muted"></i>
+                </a>
+                <a href="#" class="btn btn-outline-light disabled opacity-50 d-flex align-items-center justify-content-between px-3 py-2" aria-disabled="true">
+                    <span class="d-flex align-items-center gap-2"><i data-lucide="crown" size="16"></i> 8. Assinaturas</span>
+                    <span class="badge bg-secondary">Em breve</span>
+                </a>
             </div>
         </div>
     </div>
 
     <div class="col-md-4" data-aos="fade-up" data-aos-delay="250">
-        <div class="bento-card p-4 h-100">
-            <div class="d-flex align-items-center gap-3 mb-3">
+        <div class="bento-card p-4 h-100 d-flex flex-column">
+            <div class="d-flex align-items-center gap-3 mb-2">
                 <div class="icon-box"><i data-lucide="calendar-clock"></i></div>
-                <h5 class="fw-bold mb-0">Agenda & Caixa</h5>
+                <div>
+                    <h5 class="fw-bold mb-0">Agenda & Caixa</h5>
+                    <small class="text-muted">Horários, execução e financeiro</small>
+                </div>
             </div>
-            <div class="d-grid gap-2">
-                <a href="/escalas/" class="btn btn-outline-light text-start">9. Escalas de Turno</a>
-                <a href="/agendamentos/" class="btn btn-outline-light text-start">10. Agendamentos</a>
-                <a href="/atendimentos/" class="btn btn-outline-light text-start">11. Itens de Atendimento</a>
-                <a href="/pagamentos/" class="btn btn-outline-light text-start">12. Pagamentos (Caixa)</a>
+            <div class="d-grid gap-2 mt-3">
+                <a href="#" class="btn btn-outline-light disabled opacity-50 d-flex align-items-center justify-content-between px-3 py-2" aria-disabled="true">
+                    <span class="d-flex align-items-center gap-2"><i data-lucide="clock" size="16"></i> 9. Escalas</span>
+                    <span class="badge bg-secondary">Em breve</span>
+                </a>
+                <a href="{% url 'agendamentos:listar_agendamentos' %}" class="btn btn-outline-light d-flex align-items-center justify-content-between px-3 py-2">
+                    <span class="d-flex align-items-center gap-2"><i data-lucide="calendar-check" size="16"></i> 10. Agendamentos</span>
+                    <i data-lucide="arrow-right" size="15" class="text-muted"></i>
+                </a>
+                <a href="{% url 'atendimentos:listar_atendimentos' %}" class="btn btn-outline-light d-flex align-items-center justify-content-between px-3 py-2">
+                    <span class="d-flex align-items-center gap-2"><i data-lucide="clipboard-check" size="16"></i> 11. Atendimentos</span>
+                    <i data-lucide="arrow-right" size="15" class="text-muted"></i>
+                </a>
+                <a href="{% url 'pagamentos:listar_pagamentos' %}" class="btn btn-outline-light d-flex align-items-center justify-content-between px-3 py-2">
+                    <span class="d-flex align-items-center gap-2"><i data-lucide="wallet" size="16"></i> 12. Pagamentos</span>
+                    <i data-lucide="arrow-right" size="15" class="text-muted"></i>
+                </a>
             </div>
         </div>
     </div>
